@@ -26,6 +26,7 @@ import com.mohammad.orion.data.settings.SecureScreenRepository
 import com.mohammad.orion.data.settings.AssistantNameRepository
 import com.mohammad.orion.domain.settings.AssistantNameState
 import com.mohammad.orion.ui.settings.AssistantNameScreen
+import com.mohammad.orion.ui.tools.LocalClockScreen
 import com.mohammad.orion.data.settings.AppearanceRepository
 import com.mohammad.orion.domain.settings.AppearanceLoad
 import com.mohammad.orion.BuildConfig
@@ -38,6 +39,7 @@ private const val ASSISTANT_SETUP = "assistant_setup"
 private const val ACTIVATION_SETUP = "activation_setup"
 private const val APPEARANCE = "appearance"
 private const val SECURITY = "security"
+private const val LOCAL_CLOCK = "local_clock"
 private const val ASSISTANT_NAME = "assistant_name"
 
 @Composable fun OrionNavigation(networkStatus: StateFlow<NetworkStatus>, appearance: StateFlow<AppearanceLoad>, appearanceRepository: AppearanceRepository, security: StateFlow<SecureScreenState>, securityRepository: SecureScreenRepository, assistantName: StateFlow<AssistantNameState>, assistantNameRepository: AssistantNameRepository, onEnableScreenProtection: () -> Unit) {
@@ -47,7 +49,7 @@ private const val ASSISTANT_NAME = "assistant_name"
             val network by networkStatus.collectAsStateWithLifecycle()
             val nameState by assistantName.collectAsStateWithLifecycle()
             val displayName = (nameState as? AssistantNameState.Ready)?.name ?: stringResource(R.string.app_name)
-            HomeScreen(network = network, displayName = displayName, onSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } })
+            HomeScreen(network = network, displayName = displayName, onLocalClock = { nav.navigate(LOCAL_CLOCK) { launchSingleTop = true } }, onSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } })
         }
         composable(SETTINGS) { SettingsScreen(
             onBack = { nav.popBackStack() },
@@ -57,6 +59,7 @@ private const val ASSISTANT_NAME = "assistant_name"
             onAppearance = { nav.navigate(APPEARANCE) { launchSingleTop = true } },
             onSecurity = { nav.navigate(SECURITY) { launchSingleTop = true } },
         ) }
+        composable(LOCAL_CLOCK) { LocalClockScreen(onBack = { nav.popBackStack() }) }
         composable(ASSISTANT_NAME) { AssistantNameScreen(onBack = { nav.popBackStack() }, state = assistantName, repository = assistantNameRepository) }
         composable(ASSISTANT_SETUP) { AssistantSetupScreen(onBack = { nav.popBackStack() }) }
         composable(ACTIVATION_SETUP) { ActivationSetupScreen(onBack = { nav.popBackStack() }) }
@@ -65,7 +68,7 @@ private const val ASSISTANT_NAME = "assistant_name"
     }
 }
 
-@Composable private fun HomeScreen(network: NetworkStatus, displayName: String, onSettings: () -> Unit) {
+@Composable private fun HomeScreen(network: NetworkStatus, displayName: String, onLocalClock: () -> Unit, onSettings: () -> Unit) {
     Scaffold(topBar = { OrionTopBar(displayName, actions = {
         OrionIconButton(Icons.Default.Settings, stringResource(R.string.settings), onSettings)
     }) }) { padding ->
@@ -78,6 +81,7 @@ private const val ASSISTANT_NAME = "assistant_name"
             OrionAssistantState(OrionStatus.OFFLINE)
             NetworkSummary(network)
             OrionProgressCard(stringResource(R.string.foundation_ready), stringResource(R.string.foundation_detail), 1f)
+            OrionPrimaryButton(stringResource(R.string.local_clock_title), onLocalClock)
             OrionSecondaryButton(stringResource(R.string.settings), onSettings)
             OrionEmptyState(stringResource(R.string.no_connections), stringResource(R.string.no_connections_detail))
             if (BuildConfig.DEBUG) {

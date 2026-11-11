@@ -77,4 +77,15 @@
     <string name="assistant_name_reset">استفاده از نام پیش‌فرض</string>
     <string name="assistant_name_read_failed">خواندن نام دستیار ممکن نشد.</string>
     <string name="assistant_name_save_failed">ذخیره نام دستیار ممکن نشد. دوباره تلاش کنید.</string>
+
+    <string name="local_clock_title">تایمر و آلارم آفلاین</string>
+    <string name="local_clock_description">درخواست ساده تایمر یا آلارم را به فارسی یا انگلیسی بنویسید. اوریون برنامه ساعت را برای بررسی نهایی باز می‌کند و نمی‌تواند ایجاد آن را تأیید کند.</string>
+    <string name="local_clock_command">دستور</string>
+    <string name="local_clock_unrecognized">یک درخواست تایمر یا آلارم پشتیبانی‌شده بنویسید، مانند «تایمر برای ۵ دقیقه» یا «آلارم برای ۱۸:۳۰».</string>
+    <string name="local_clock_review">بررسی عمل</string>
+    <string name="local_clock_confirm_title">برنامه ساعت باز شود؟</string>
+    <string name="local_clock_timer_detail">تایمر پیشنهادی: %1$d ثانیه. آن را در برنامه ساعت بررسی کنید.</string>
+    <string name="local_clock_alarm_detail">آلارم پیشنهادی: %1$02d:%2$02d. آن را در برنامه ساعت بررسی کنید.</string>
+    <string name="local_clock_open">باز کردن ساعت</string>
+    <string name="local_clock_unavailable">برنامه ساعت سازگار در دسترس نیست یا اندروید درخواست را رد کرد.</string>
 </resources>

@@ -77,4 +77,15 @@
     <string name="assistant_name_reset">Use default name</string>
     <string name="assistant_name_read_failed">Could not read the assistant name.</string>
     <string name="assistant_name_save_failed">Could not save the assistant name. Try again.</string>
+
+    <string name="local_clock_title">Offline timer and alarm</string>
+    <string name="local_clock_description">Type a simple timer or alarm request in English or Persian. Orion opens your clock app for final review; it cannot confirm that the clock app created it.</string>
+    <string name="local_clock_command">Command</string>
+    <string name="local_clock_unrecognized">Use a supported timer or alarm request, for example “timer for 5 minutes” or “alarm at 18:30”.</string>
+    <string name="local_clock_review">Review action</string>
+    <string name="local_clock_confirm_title">Open clock app?</string>
+    <string name="local_clock_timer_detail">Proposed timer: %1$d seconds. Review it in your clock app.</string>
+    <string name="local_clock_alarm_detail">Proposed alarm: %1$02d:%2$02d. Review it in your clock app.</string>
+    <string name="local_clock_open">Open clock</string>
+    <string name="local_clock_unavailable">No compatible clock app is available, or Android denied the request.</string>
 </resources>
