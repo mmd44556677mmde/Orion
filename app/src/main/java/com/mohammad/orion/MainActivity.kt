@@ -31,10 +31,13 @@ class MainActivity : ComponentActivity() {
             val settings = (appearance as? AppearanceLoad.Ready)?.settings ?: AppearanceSettings()
             val security by container.secureScreen.collectAsStateWithLifecycle()
             var requireSecureNow by remember { mutableStateOf(false) }
+            // Read state during composition so changes schedule the window update.
+            val protectScreen = requireSecureNow || secureScreenRequired(security)
+            val protectionPersisted = (security as? SecureScreenState.Ready)?.enabled == true
             SideEffect {
-                if (requireSecureNow || secureScreenRequired(security)) window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                if (protectScreen) window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
                 else window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-                if (requireSecureNow && (security as? SecureScreenState.Ready)?.enabled == true) requireSecureNow = false
+                if (requireSecureNow && protectionPersisted) requireSecureNow = false
             }
             OrionTheme(dark = useDarkTheme(settings.theme, isSystemInDarkTheme()), dynamic = settings.dynamicColor) {
                 OrionNavigation(container.networkStatus, container.appearance, container.appearanceRepository, container.secureScreen, container.secureScreenRepository, onEnableScreenProtection = {

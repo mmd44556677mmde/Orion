@@ -61,3 +61,7 @@ A connected/validated network does not prove a provider is reachable. There is n
 ## Security, privacy, licenses
 
 Read `SECURITY_REVIEW.md` and `docs/PRIVACY.md`. There is no complete authentication, encrypted private database, backup/restore, real action authorization or provider integration. Future third-party providers may retain, train on, or transfer submitted data under their own terms; user consent, provider policy review and data minimization are required before enabling them. No project license or third-party license notices were found; the rights holder must choose a license and review dependency licenses before distribution. Do not assume permission to redistribute.
+
+## GitHub Actions
+
+The Android CI workflow runs on pushes, pull requests, and manual dispatch. It attempts a clean debug/release build, unit tests, lint, test APK compilation and emulator instrumentation. On success it uploads `Orion-debug-apk` (debug-signed, for testing only), `Orion-unsigned-release-apk` (not installable until signed), and test reports as workflow artifacts. Download artifacts from the actual workflow run while signed in with repository access. A workflow definition alone does not prove a successful build or that artifacts exist; inspect its run and reports. Signed release builds are not configured in CI.
