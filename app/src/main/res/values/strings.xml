@@ -67,4 +67,14 @@
     <string name="secure_screen_disable_title">Disable screen protection?</string>
     <string name="secure_screen_disable_message">Screenshots and recent-app previews may show app content.</string>
     <string name="secure_screen_disable_confirm">Disable protection</string>
+
+    <string name="assistant_name_title">Assistant name</string>
+    <string name="assistant_name_short">Choose the name shown in Orion</string>
+    <string name="assistant_name_description">Choose a display name. This does not configure a wake word or change the Android app name.</string>
+    <string name="assistant_name_label">Display name</string>
+    <string name="assistant_name_hint">1 to 40 characters; single line.</string>
+    <string name="assistant_name_save">Save name</string>
+    <string name="assistant_name_reset">Use default name</string>
+    <string name="assistant_name_read_failed">Could not read the assistant name.</string>
+    <string name="assistant_name_save_failed">Could not save the assistant name. Try again.</string>
 </resources>

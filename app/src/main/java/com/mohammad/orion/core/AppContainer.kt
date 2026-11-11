@@ -4,6 +4,8 @@ import android.util.Log
 import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.preferencesDataStoreFile
+import com.mohammad.orion.data.settings.AssistantNameRepository
+import com.mohammad.orion.domain.settings.AssistantNameState
 import com.mohammad.orion.data.settings.AppearanceRepository
 import com.mohammad.orion.data.settings.SecureScreenRepository
 import com.mohammad.orion.data.settings.SecureScreenState
@@ -35,6 +37,8 @@ class AppContainer(context: Context) {
     val applicationScope = CoroutineScope(SupervisorJob() + dispatchers.default)
     val logger: SafeLogger = AndroidSafeLogger()
     private val settingsStore = PreferenceDataStoreFactory.create(scope = applicationScope) { context.applicationContext.preferencesDataStoreFile("appearance") }
+    val assistantNameRepository = AssistantNameRepository(settingsStore)
+    val assistantName = assistantNameRepository.state.stateIn(applicationScope, SharingStarted.WhileSubscribed(5_000), AssistantNameState.Loading)
     val appearanceRepository = AppearanceRepository(settingsStore)
     val appearance = appearanceRepository.state.stateIn(applicationScope, SharingStarted.WhileSubscribed(5_000), AppearanceLoad.Loading)
     val secureScreenRepository = SecureScreenRepository(settingsStore)

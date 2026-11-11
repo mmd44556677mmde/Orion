@@ -67,4 +67,14 @@
     <string name="secure_screen_disable_title">محافظت از صفحه خاموش شود؟</string>
     <string name="secure_screen_disable_message">تصویر صفحه و پیش‌نمایش برنامه‌های اخیر ممکن است محتوای برنامه را نشان دهند.</string>
     <string name="secure_screen_disable_confirm">خاموش کردن محافظت</string>
+
+    <string name="assistant_name_title">نام دستیار</string>
+    <string name="assistant_name_short">نام نمایشی در اوریون را انتخاب کنید</string>
+    <string name="assistant_name_description">یک نام نمایشی انتخاب کنید. این کار عبارت بیدارباش یا نام برنامه در اندروید را تغییر نمی‌دهد.</string>
+    <string name="assistant_name_label">نام نمایشی</string>
+    <string name="assistant_name_hint">۱ تا ۴۰ نویسه، در یک خط.</string>
+    <string name="assistant_name_save">ذخیره نام</string>
+    <string name="assistant_name_reset">استفاده از نام پیش‌فرض</string>
+    <string name="assistant_name_read_failed">خواندن نام دستیار ممکن نشد.</string>
+    <string name="assistant_name_save_failed">ذخیره نام دستیار ممکن نشد. دوباره تلاش کنید.</string>
 </resources>

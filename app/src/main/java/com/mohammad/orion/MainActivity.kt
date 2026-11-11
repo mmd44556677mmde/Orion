@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                 if (requireSecureNow && protectionPersisted) requireSecureNow = false
             }
             OrionTheme(dark = useDarkTheme(settings.theme, isSystemInDarkTheme()), dynamic = settings.dynamicColor) {
-                OrionNavigation(container.networkStatus, container.appearance, container.appearanceRepository, container.secureScreen, container.secureScreenRepository, onEnableScreenProtection = {
+                OrionNavigation(container.networkStatus, container.appearance, container.appearanceRepository, container.secureScreen, container.secureScreenRepository, container.assistantName, container.assistantNameRepository, onEnableScreenProtection = {
                     window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
                     requireSecureNow = true
                 })
