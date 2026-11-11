@@ -1,0 +1,6 @@
+<voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sessionService="com.mohammad.orion.assistant.OrionSessionService"
+    android:recognitionService="com.mohammad.orion.assistant.OrionRecognitionService"
+    android:settingsActivity="com.mohammad.orion.MainActivity"
+    android:supportsAssist="true"
+    android:supportsLaunchVoiceAssistFromKeyguard="false" />
