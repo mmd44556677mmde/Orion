@@ -23,7 +23,7 @@
     <string name="assistant_overlay_description">گفتگو، صدا و اقدامات صفحه هنوز در دسترس نیستند. برای ادامهٔ راه‌اندازی، اوریون را از فهرست برنامه‌ها باز کنید.</string>
     <string name="assistant_overlay_dismiss">بستن</string>
 
-    <string name="local_interface_available">رابط محلی در دسترس است؛ فرمان‌های محلی پیکربندی نشده‌اند.</string>
+    <string name="local_interface_available">درخواست تایمر و آلارم را می‌توانید در برنامه ساعت بررسی کنید.</string>
     <string name="remote_provider_unconfigured">هوش مصنوعی راه دور: ارائه‌دهنده‌ای تنظیم نشده است.</string>
     <string name="network_unknown">وضعیت شبکه در دسترس نیست.</string>
     <string name="network_disconnected">اتصال شبکه وجود ندارد.</string>

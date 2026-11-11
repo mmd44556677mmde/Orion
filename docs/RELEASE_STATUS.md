@@ -1,6 +1,6 @@
 # Release readiness and verification
 
-**Assessment: NOT READY.** The app is a partial foundation. Core requested functionality is missing, the Android project has not been built, and release, instrumentation, device, security and performance verification remain outstanding. No release artifacts were produced and there are no artifact checksums. This is a handoff inventory, not a release approval.
+**Assessment: NOT READY.** The app is a partial foundation. Core requested functionality is missing, a previous GitHub Actions run built debug and unsigned release APKs and passed instrumentation, but the current changes still require CI and product, security, device and performance verification. No production release artifacts or checksums are claimed. This is a handoff inventory, not a release approval.
 
 ## Prior-step capability audit
 
@@ -13,7 +13,7 @@
 | Speech and Live | Text segmentation and pure state reducer only; no microphone, TTS, audio focus, Live session executor or HUD integration. |
 | Memory | Policy, scanning, explicit command and retrieval helpers only; no encrypted database, UI, private-mode enforcement or memory lifecycle. |
 | Visual/multimodal | Bounded assist-text reader only; no invocation integration, consent, screenshots, image input or upload. |
-| Tools, routines and notifications | Parsers, policy and scheduling calculator only; no executor, permission/confirmation integration, audit, scheduler, receiver or notification listener. Confirmation gate is not integrated. |
+| Tools, routines and notifications | The offline timer/alarm UI reviews proposals and hands them to an external clock app. Other parsers, policy and scheduling calculator are not connected to an executor; no action audit, scheduler, receiver or notification listener. Confirmation gate is not integrated. |
 | Activation | Guidance only; no wake word, model handling, background listening or boot activation. |
 | Privacy/storage/export | Main-window screen flag and backup exclusions exist; no biometric lock, encrypted private storage or export/restore. Notification and secret detection are heuristic. |
 | Appearance | Non-secret DataStore preferences exist; no guarantee of device behavior until instrumentation. |
@@ -27,7 +27,9 @@
 - Source search for TODO/FIXME, sample/demo/mock and diagnostic logging identified no TODO/FIXME or sample provider response in production Kotlin, and found one debug-gated logger limited to event names. This is not a comprehensive secret scan or proof of absence of secrets or leaks. No project license or dependency notices were found; rights-holder review is required. Privacy disclosure is a draft, not a published policy.
 - Direct versions are pinned in the version catalog and Gradle wrapper distribution has a checksum; dependencies are not fully locked or verified transitively. No dependency installation was possible in this environment.
 
-## Verification record (this handoff)
+## Historical verification record (previous handoff)
+
+The entries below describe the earlier local environment, not all later CI runs. GitHub run [43092430524](https://github.com/mmd44556677mmde/Orion/actions/runs/43092430524) passed its build and emulator jobs for an earlier foundation commit; its artifacts are test artifacts, not a production release. Current-branch results must be checked separately.
 
 | Check | Result |
 |---|---|

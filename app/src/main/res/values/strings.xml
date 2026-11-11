@@ -23,7 +23,7 @@
     <string name="assistant_overlay_description">Chat, voice and page actions are not available yet. Open Orion from your launcher to continue setup.</string>
     <string name="assistant_overlay_dismiss">Dismiss</string>
 
-    <string name="local_interface_available">Local interface available; local commands are not configured.</string>
+    <string name="local_interface_available">Local timer and alarm requests can be reviewed in your clock app.</string>
     <string name="remote_provider_unconfigured">Remote AI: no provider configured.</string>
     <string name="network_unknown">Network status unavailable.</string>
     <string name="network_disconnected">No network connection.</string>
