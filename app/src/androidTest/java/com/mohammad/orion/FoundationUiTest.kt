@@ -5,8 +5,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertExists
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -33,6 +34,14 @@ class FoundationUiTest {
         rule.onNodeWithText(text(R.string.home_title)).assertIsDisplayed()
     }
 
+}
+
+@RunWith(AndroidJUnit4::class)
+class FoundationComponentsUiTest {
+    @get:Rule val rule = createComposeRule()
+    private val context get() = InstrumentationRegistry.getInstrumentation().targetContext
+    private fun text(id: Int) = context.getString(id)
+
     @Test fun rtlLargePersianAndSemanticStates() {
         val longText = "این یک متن فارسی طولانی برای بررسی خوانایی و چیدمان درست در اندازه قلم بزرگ است و باید بدون قطع شدن نمایش داده شود."
         rule.setContent {
@@ -41,7 +50,7 @@ class FoundationUiTest {
             }
         }
         rule.onNodeWithText(longText).assertExists()
-        rule.onNodeWithContentDescription(rule.activity.getString(R.string.status_description, text(R.string.status_offline))).assertExists()
+        rule.onNodeWithContentDescription(context.getString(R.string.status_description, text(R.string.status_offline))).assertExists()
     }
 
     @Test fun ltrStatusColorsAndDescriptions() {
@@ -57,7 +66,7 @@ class FoundationUiTest {
             assertNotEquals(colors[OrionStatus.ERROR], colors[OrionStatus.WARNING])
         }
         OrionStatus.entries.forEach { status ->
-            rule.onNodeWithContentDescription(rule.activity.getString(R.string.status_description, text(status.label))).assertExists()
+            rule.onNodeWithContentDescription(context.getString(R.string.status_description, text(status.label))).assertExists()
         }
     }
 }
