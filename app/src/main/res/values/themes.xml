@@ -1,0 +1,14 @@
+<resources>
+    <style name="Theme.Orion" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#090E0D</item>
+        <item name="android:navigationBarColor">#090E0D</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+    <style name="Theme.Orion.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#090E0D</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_orion_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Orion</item>
+    </style>
+</resources>

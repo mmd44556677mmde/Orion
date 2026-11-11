@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">اوریون</string><string name="by_creator">ساختهٔ محمد</string>
+    <string name="home_title">داشبورد پایه</string><string name="home_description">زیربنایی امن و دسترس‌پذیر برای دستیار شخصی شما.</string>
+    <string name="project_health">وضعیت پروژه</string><string name="foundation_ready">زیربنا آماده است</string><string name="foundation_detail">سیستم طراحی و ناوبری در دسترس هستند. هیچ سرویس دستیاری متصل نیست.</string>
+    <string name="settings">تنظیمات</string><string name="settings_description">راه‌اندازی دستیار را اینجا مدیریت کنید؛ تنظیمات بیشتر با افزودن قابلیت‌ها ارائه می‌شوند.</string><string name="back">بازگشت</string>
+    <string name="status_success">آماده</string><string name="status_warning">نیازمند توجه</string><string name="status_error">خطا</string><string name="status_offline">آفلاین</string><string name="status_connecting">در حال اتصال</string>
+    <string name="assistant_state">وضعیت دستیار: %1$s</string><string name="status_description">وضعیت: %1$s</string>
+    <string name="system_status">وضعیت سیستم</string><string name="component_preview">پیش‌نمایش اجزا</string><string name="preview_input">ورودی نمونه</string><string name="preview_hint">متن را وارد کنید</string><string name="primary_action">عمل اصلی</string><string name="secondary_action">عمل ثانویه</string><string name="clear_input">پاک کردن ورودی</string>
+    <string name="no_connections">سرویسی متصل نیست</string><string name="no_connections_detail">اتصال‌ها در مرحله‌ای دیگر تنظیم می‌شوند.</string><string name="progress_title">زیربنا</string><string name="progress_detail">رابط کاربری و ناوبری</string>
+    <string name="debug_information">اطلاعات نسخه</string><string name="debug_details">نسخهٔ آزمایشی • رابط اندروید %1$d • نسخهٔ %2$s</string>
+    <string name="loading">در حال بارگذاری</string><string name="dismiss">بستن</string><string name="retry">تلاش دوباره</string><string name="dialog_title">تأیید</string><string name="dialog_body">پیش از ادامه این عمل را بررسی کنید.</string><string name="confirm">تأیید</string>
+
+    <string name="assistant_setup_title">راه‌اندازی دستیار دیجیتال</string>
+    <string name="assistant_setup_short">بررسی یا تغییر دستیار پیش‌فرض</string>
+    <string name="assistant_setup_description">اندروید می‌تواند اوریون را به عنوان دستیار دیجیتال باز کند. ممکن است دستگاه شما از میانبر دیگری استفاده کند یا به تنظیمات بیشتری نیاز داشته باشد.</string>
+    <string name="assistant_selected">اوریون دستیار انتخاب‌شده است.</string>
+    <string name="assistant_not_selected">اوریون دستیار انتخاب‌شده نیست.</string>
+    <string name="assistant_unavailable">نقش دستیار در این دستگاه در دسترس نیست.</string>
+    <string name="assistant_setup_limitations">اوریون می‌تواند پنجرهٔ دستیار را نشان دهد، اما گفتگو، تشخیص گفتار و اقدامات صفحه هنوز در دسترس نیستند. انتخاب اوریون دستیار فعلی شما را جایگزین می‌کند.</string>
+    <string name="assistant_open_settings">باز کردن تنظیمات دستیار</string>
+    <string name="assistant_settings_failed">تنظیمات دستیار باز نشد. برنامه‌های پیش‌فرض را در تنظیمات سیستم باز کنید.</string>
+    <string name="assistant_overlay_state">پنجرهٔ دستیار</string>
+    <string name="assistant_overlay_description">گفتگو، صدا و اقدامات صفحه هنوز در دسترس نیستند. برای ادامهٔ راه‌اندازی، اوریون را از فهرست برنامه‌ها باز کنید.</string>
+    <string name="assistant_overlay_dismiss">بستن</string>
+
+    <string name="local_interface_available">رابط محلی در دسترس است؛ فرمان‌های محلی پیکربندی نشده‌اند.</string>
+    <string name="remote_provider_unconfigured">هوش مصنوعی راه دور: ارائه‌دهنده‌ای تنظیم نشده است.</string>
+    <string name="network_unknown">وضعیت شبکه در دسترس نیست.</string>
+    <string name="network_disconnected">اتصال شبکه وجود ندارد.</string>
+    <string name="network_unvalidated">شبکه متصل است، اما دسترسی به اینترنت تأیید نشده است.</string>
+    <string name="network_validated">اندروید دسترسی به اینترنت را گزارش می‌کند؛ دسترسی به ارائه‌دهنده بررسی نشده است.</string>
+
+    <string name="activation_title">فعال‌سازی محلی</string>
+    <string name="activation_setup_short">وضعیت قابلیت و راهنمای تنظیم دستگاه</string>
+    <string name="activation_unavailable">فعال‌سازی با واژهٔ بیدارباش در دسترس نیست</string>
+    <string name="activation_current_limit">در حال حاضر موتور واژهٔ بیدارباش یا تشخیص گفتار با دکمه در دسترس نیست. هیچ سرویس میکروفون پس‌زمینه‌ای اجرا نمی‌شود.</string>
+    <string name="activation_model_note">برخی موتورها پس از تغییر نام دستیار به مدل واژهٔ سفارشی جدید نیاز دارند. تغییر نام به تنهایی عبارت قابل تشخیص را تغییر نمی‌دهد.</string>
+    <string name="activation_privacy">نسخهٔ فعلی برنامه صدای میکروفون را ضبط یا نگهداری نمی‌کند.</string>
+    <string name="activation_hyperos_title">راهنمای HyperOS و MIUI</string>
+    <string name="activation_hyperos_autostart">اگر دستگاه شما شروع خودکار را برای این برنامه ارائه می‌دهد، می‌توانید آن را در تنظیمات سیستم بررسی کنید. نام و محل گزینه‌ها در دستگاه‌ها متفاوت است.</string>
+    <string name="activation_hyperos_battery">در صورت نیاز تنظیم باتری برنامه را بررسی و سطح محدودیت مناسب را انتخاب کنید. محدودیت کمتر ممکن است مصرف باتری را افزایش دهد.</string>
+    <string name="activation_hyperos_recents">برخی دستگاه‌ها در برنامه‌های اخیر گزینهٔ قفل دارند که ممکن است بسته شدن برنامه را کاهش دهد. این گزینه اجرای پس‌زمینه را تضمین نمی‌کند.</string>
+    <string name="activation_system_restrictions">اندروید همچنان ممکن است شروع میکروفون در پس‌زمینه یا پس از راه‌اندازی مجدد را محدود کند و به اقدام کاربر نیاز باشد. این تنظیمات شنود واژهٔ بیدارباش را فعال نمی‌کنند.</string>
+    <string name="activation_app_settings">باز کردن تنظیمات برنامه</string>
+    <string name="activation_battery_settings">باز کردن تنظیمات بهینه‌سازی باتری</string>
+    <string name="activation_settings_unavailable">این صفحهٔ تنظیمات باز نشد. در تنظیمات سیستم، برنامه یا باتری را جستجو کنید.</string>
+
+    <string name="appearance_title">ظاهر</string>
+    <string name="appearance_short">پوسته و رنگ‌های سیستم</string>
+    <string name="appearance_description">پوستهٔ اوریون را انتخاب کنید یا از تنظیم دستگاه پیروی کنید.</string>
+    <string name="appearance_dark">تیره</string>
+    <string name="appearance_light">روشن</string>
+    <string name="appearance_system">سیستم</string>
+    <string name="appearance_dynamic">استفاده از رنگ‌های پویای سیستم</string>
+    <string name="appearance_dynamic_hint">برای حفظ رنگ‌های سبز و فیروزه‌ای اوریون این گزینه را خاموش کنید.</string>
+    <string name="appearance_dynamic_unsupported">رنگ پویا به اندروید ۱۲ یا جدیدتر نیاز دارد.</string>
+    <string name="appearance_read_failed">خواندن تنظیمات ظاهر ممکن نشد. پوستهٔ پیش‌فرض استفاده می‌شود.</string>
+    <string name="appearance_save_failed">ذخیرهٔ تنظیمات ظاهر ممکن نشد. دوباره تلاش کنید.</string>
+
+    <string name="security_title">حریم خصوصی و امنیت</string>
+    <string name="security_short">محافظت از صفحه</string>
+    <string name="secure_screen_description">از پنجرهٔ اصلی برنامه در برابر تصویر صفحه و پیش‌نمایش محافظت‌نشده در برنامه‌های اخیر محافظت کنید.</string>
+    <string name="secure_screen_label">محافظت از صفحهٔ برنامه</string>
+    <string name="secure_screen_limit">رفتار اندروید و دستگاه‌ها ممکن است متفاوت باشد. این تنظیم فقط پنجرهٔ اصلی برنامه را پوشش می‌دهد، نه برنامه‌های دیگر یا پنجرهٔ جداگانهٔ دستیار را. دوربین خارجی همچنان می‌تواند تصویر بگیرد.</string>
+    <string name="secure_screen_read_failed">خواندن تنظیمات صفحه ممکن نشد. محافظت فعال می‌ماند.</string>
+    <string name="secure_screen_save_failed">ذخیرهٔ تنظیمات صفحه ممکن نشد. دوباره تلاش کنید.</string>
+    <string name="secure_screen_disable_title">محافظت از صفحه خاموش شود؟</string>
+    <string name="secure_screen_disable_message">تصویر صفحه و پیش‌نمایش برنامه‌های اخیر ممکن است محتوای برنامه را نشان دهند.</string>
+    <string name="secure_screen_disable_confirm">خاموش کردن محافظت</string>
+</resources>
