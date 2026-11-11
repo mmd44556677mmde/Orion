@@ -32,7 +32,7 @@ jobs:
       - uses: gradle/actions/wrapper-validation@v4
       - uses: gradle/actions/setup-gradle@v4
       - name: Build and verify
-        run: ./gradlew --no-daemon clean assembleDebug testDebugUnitTest lintDebug lintRelease assembleDebugAndroidTest assembleRelease
+        run: .github/scripts/gradle-with-diagnostics.sh clean assembleDebug testDebugUnitTest lintDebug lintRelease assembleDebugAndroidTest assembleRelease
       - name: Upload debug APK (for testing only)
         uses: actions/upload-artifact@v4
         with:
@@ -85,7 +85,7 @@ jobs:
           target: google_apis
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          script: ./gradlew --no-daemon connectedDebugAndroidTest
+          script: .github/scripts/gradle-with-diagnostics.sh connectedDebugAndroidTest
       - name: Upload instrumentation reports
         if: always()
         uses: actions/upload-artifact@v4
