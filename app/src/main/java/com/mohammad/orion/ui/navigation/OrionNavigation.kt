@@ -23,6 +23,10 @@ import com.mohammad.orion.ui.settings.AppearanceSettingsScreen
 import com.mohammad.orion.ui.settings.SecuritySettingsScreen
 import com.mohammad.orion.data.settings.SecureScreenState
 import com.mohammad.orion.data.settings.SecureScreenRepository
+import com.mohammad.orion.data.settings.AssistantNameRepository
+import com.mohammad.orion.domain.settings.AssistantNameState
+import com.mohammad.orion.ui.settings.AssistantNameScreen
+import com.mohammad.orion.ui.tools.LocalClockScreen
 import com.mohammad.orion.data.settings.AppearanceRepository
 import com.mohammad.orion.domain.settings.AppearanceLoad
 import com.mohammad.orion.BuildConfig
@@ -35,21 +39,28 @@ private const val ASSISTANT_SETUP = "assistant_setup"
 private const val ACTIVATION_SETUP = "activation_setup"
 private const val APPEARANCE = "appearance"
 private const val SECURITY = "security"
+private const val LOCAL_CLOCK = "local_clock"
+private const val ASSISTANT_NAME = "assistant_name"
 
-@Composable fun OrionNavigation(networkStatus: StateFlow<NetworkStatus>, appearance: StateFlow<AppearanceLoad>, appearanceRepository: AppearanceRepository, security: StateFlow<SecureScreenState>, securityRepository: SecureScreenRepository, onEnableScreenProtection: () -> Unit) {
+@Composable fun OrionNavigation(networkStatus: StateFlow<NetworkStatus>, appearance: StateFlow<AppearanceLoad>, appearanceRepository: AppearanceRepository, security: StateFlow<SecureScreenState>, securityRepository: SecureScreenRepository, assistantName: StateFlow<AssistantNameState>, assistantNameRepository: AssistantNameRepository, onEnableScreenProtection: () -> Unit) {
     val nav = rememberNavController()
     NavHost(navController = nav, startDestination = HOME) {
         composable(HOME) {
             val network by networkStatus.collectAsStateWithLifecycle()
-            HomeScreen(network = network, onSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } })
+            val nameState by assistantName.collectAsStateWithLifecycle()
+            val displayName = (nameState as? AssistantNameState.Ready)?.name ?: stringResource(R.string.app_name)
+            HomeScreen(network = network, displayName = displayName, onLocalClock = { nav.navigate(LOCAL_CLOCK) { launchSingleTop = true } }, onSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } })
         }
         composable(SETTINGS) { SettingsScreen(
             onBack = { nav.popBackStack() },
+            onAssistantName = { nav.navigate(ASSISTANT_NAME) { launchSingleTop = true } },
             onAssistantSetup = { nav.navigate(ASSISTANT_SETUP) { launchSingleTop = true } },
             onActivationSetup = { nav.navigate(ACTIVATION_SETUP) { launchSingleTop = true } },
             onAppearance = { nav.navigate(APPEARANCE) { launchSingleTop = true } },
             onSecurity = { nav.navigate(SECURITY) { launchSingleTop = true } },
         ) }
+        composable(LOCAL_CLOCK) { LocalClockScreen(onBack = { nav.popBackStack() }) }
+        composable(ASSISTANT_NAME) { AssistantNameScreen(onBack = { nav.popBackStack() }, state = assistantName, repository = assistantNameRepository) }
         composable(ASSISTANT_SETUP) { AssistantSetupScreen(onBack = { nav.popBackStack() }) }
         composable(ACTIVATION_SETUP) { ActivationSetupScreen(onBack = { nav.popBackStack() }) }
         composable(APPEARANCE) { AppearanceSettingsScreen(onBack = { nav.popBackStack() }, state = appearance, repository = appearanceRepository) }
@@ -57,8 +68,8 @@ private const val SECURITY = "security"
     }
 }
 
-@Composable private fun HomeScreen(network: NetworkStatus, onSettings: () -> Unit) {
-    Scaffold(topBar = { OrionTopBar(stringResource(R.string.app_name), actions = {
+@Composable private fun HomeScreen(network: NetworkStatus, displayName: String, onLocalClock: () -> Unit, onSettings: () -> Unit) {
+    Scaffold(topBar = { OrionTopBar(displayName, actions = {
         OrionIconButton(Icons.Default.Settings, stringResource(R.string.settings), onSettings)
     }) }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).padding(OrionSpacing.md), verticalArrangement = Arrangement.spacedBy(OrionSpacing.md)) {
@@ -70,6 +81,7 @@ private const val SECURITY = "security"
             OrionAssistantState(OrionStatus.OFFLINE)
             NetworkSummary(network)
             OrionProgressCard(stringResource(R.string.foundation_ready), stringResource(R.string.foundation_detail), 1f)
+            OrionPrimaryButton(stringResource(R.string.local_clock_title), onLocalClock)
             OrionSecondaryButton(stringResource(R.string.settings), onSettings)
             OrionEmptyState(stringResource(R.string.no_connections), stringResource(R.string.no_connections_detail))
             if (BuildConfig.DEBUG) {
@@ -81,10 +93,11 @@ private const val SECURITY = "security"
         }
     }
 }
-@Composable private fun SettingsScreen(onBack: () -> Unit, onAssistantSetup: () -> Unit, onActivationSetup: () -> Unit, onAppearance: () -> Unit, onSecurity: () -> Unit) {
+@Composable private fun SettingsScreen(onBack: () -> Unit, onAssistantName: () -> Unit, onAssistantSetup: () -> Unit, onActivationSetup: () -> Unit, onAppearance: () -> Unit, onSecurity: () -> Unit) {
     Scaffold(topBar = { OrionTopBar(stringResource(R.string.settings), onBack) }) { padding ->
         Column(Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).padding(OrionSpacing.md)) {
             OrionEmptyState(stringResource(R.string.settings), stringResource(R.string.settings_description))
+            OrionSettingRow(stringResource(R.string.assistant_name_title), stringResource(R.string.assistant_name_short), onAssistantName)
             OrionSettingRow(stringResource(R.string.assistant_setup_title), stringResource(R.string.assistant_setup_short), onAssistantSetup)
             OrionSettingRow(stringResource(R.string.activation_title), stringResource(R.string.activation_setup_short), onActivationSetup)
             OrionSettingRow(stringResource(R.string.appearance_title), stringResource(R.string.appearance_short), onAppearance)

@@ -2,7 +2,7 @@
 
 **Release status: not ready.** See [release status](docs/RELEASE_STATUS.md), [handoff and signing](docs/HANDOFF.md), [privacy disclosure draft](docs/PRIVACY.md), and [maintenance guide](docs/MAINTENANCE.md).
 
-Orion, by Mohammad, is a personal Android agent. This step provides only the application foundation and a diagnostics screen; it does not connect an AI provider or execute device actions.
+Orion, by Mohammad, is a personal Android agent. The app is an incomplete foundation: it does not connect an AI provider. It can hand a reviewed timer or alarm request to a compatible clock app, which controls final creation.
 
 ## Build
 
@@ -57,7 +57,7 @@ An app-owned, cancellable AssistStructure reader can extract bounded visible tex
 
 ## Device-tool groundwork
 
-A deterministic local parser recognizes a limited set of English/Persian timer, alarm, flashlight, and open-app requests. It asks for clarification on ambiguous inputs; app labels are unresolved queries, not launch targets. Parsing neither grants permission nor executes actions. There is no device-tool executor, confirmation UI, audit store, or Android device-tool implementation yet.
+A deterministic local parser recognizes a limited set of English/Persian timer, alarm, flashlight, and open-app requests. It asks for clarification on ambiguous inputs; app labels are unresolved queries, not launch targets. The offline timer/alarm screen reviews parsed requests and, after confirmation, hands them to a compatible Android clock app with its UI shown. This is not a general device-tool executor. Other parsed actions cannot be executed; there is no action audit store.
 
 ## Advanced-integration groundwork
 

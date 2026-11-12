@@ -20,6 +20,15 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import com.mohammad.orion.R
+import com.mohammad.orion.OrionApplication
+import com.mohammad.orion.domain.settings.AssistantNameState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 /** The system invokes the corresponding session service; no background listening is started. */
 class OrionVoiceService : VoiceInteractionService()
@@ -40,6 +49,12 @@ class OrionRecognitionService : RecognitionService() {
 /** A minimal, honest session UI until the chat and voice implementations are available. */
 class OrionSession(context: Context) : VoiceInteractionSession(context) {
     private val sessionContext = context
+    private val sessionScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private var nameJob: Job? = null
+    override fun onDestroy() {
+        sessionScope.cancel()
+        super.onDestroy()
+    }
     private fun dp(value: Int) = (value * sessionContext.resources.displayMetrics.density).toInt()
 
     override fun onCreateContentView(): View {
@@ -68,7 +83,15 @@ class OrionSession(context: Context) : VoiceInteractionSession(context) {
             if (bold) setTypeface(typeface, Typeface.BOLD)
             setPadding(0, dp(6), 0, dp(6))
         }
-        panel.addView(label(R.string.app_name, 24f, Color.rgb(120, 246, 169), true))
+        val nameLabel = label(R.string.app_name, 24f, Color.rgb(120, 246, 169), true)
+        panel.addView(nameLabel)
+        nameJob?.cancel()
+        nameJob = sessionScope.launch {
+            val repository = (sessionContext.applicationContext as OrionApplication).container.assistantNameRepository
+            repository.state.collectLatest { state ->
+                nameLabel.text = (state as? AssistantNameState.Ready)?.name ?: sessionContext.getString(R.string.app_name)
+            }
+        }
         panel.addView(label(R.string.assistant_overlay_state, 16f, Color.WHITE, true))
         panel.addView(label(R.string.assistant_overlay_description, 16f, Color.rgb(210, 225, 219)))
         panel.addView(label(R.string.assistant_overlay_dismiss, 16f, Color.rgb(122, 220, 229)).apply {

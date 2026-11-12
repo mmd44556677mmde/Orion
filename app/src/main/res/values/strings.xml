@@ -23,7 +23,7 @@
     <string name="assistant_overlay_description">Chat, voice and page actions are not available yet. Open Orion from your launcher to continue setup.</string>
     <string name="assistant_overlay_dismiss">Dismiss</string>
 
-    <string name="local_interface_available">Local interface available; local commands are not configured.</string>
+    <string name="local_interface_available">Local timer and alarm requests can be reviewed in your clock app.</string>
     <string name="remote_provider_unconfigured">Remote AI: no provider configured.</string>
     <string name="network_unknown">Network status unavailable.</string>
     <string name="network_disconnected">No network connection.</string>
@@ -67,4 +67,25 @@
     <string name="secure_screen_disable_title">Disable screen protection?</string>
     <string name="secure_screen_disable_message">Screenshots and recent-app previews may show app content.</string>
     <string name="secure_screen_disable_confirm">Disable protection</string>
+
+    <string name="assistant_name_title">Assistant name</string>
+    <string name="assistant_name_short">Choose the name shown in Orion</string>
+    <string name="assistant_name_description">Choose a display name. This does not configure a wake word or change the Android app name.</string>
+    <string name="assistant_name_label">Display name</string>
+    <string name="assistant_name_hint">1 to 40 characters; single line.</string>
+    <string name="assistant_name_save">Save name</string>
+    <string name="assistant_name_reset">Use default name</string>
+    <string name="assistant_name_read_failed">Could not read the assistant name.</string>
+    <string name="assistant_name_save_failed">Could not save the assistant name. Try again.</string>
+
+    <string name="local_clock_title">Offline timer and alarm</string>
+    <string name="local_clock_description">Type a simple timer or alarm request in English or Persian. Orion opens your clock app for final review; it cannot confirm that the clock app created it.</string>
+    <string name="local_clock_command">Command</string>
+    <string name="local_clock_unrecognized">Use a supported timer or alarm request, for example “timer for 5 minutes” or “alarm at 18:30”.</string>
+    <string name="local_clock_review">Review action</string>
+    <string name="local_clock_confirm_title">Open clock app?</string>
+    <string name="local_clock_timer_detail">Proposed timer: %1$d seconds. Review it in your clock app.</string>
+    <string name="local_clock_alarm_detail">Proposed alarm: %1$02d:%2$02d. Review it in your clock app.</string>
+    <string name="local_clock_open">Open clock</string>
+    <string name="local_clock_unavailable">No compatible clock app is available, or Android denied the request.</string>
 </resources>
